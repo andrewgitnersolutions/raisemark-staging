@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL8Q68XWCF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZL8Q68XWCF');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Readiness Mirage in K-12 Classroom AI | RaiseMark</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="description" content="Why heavy classroom AI adoption does not mean teachers are ready. An analysis of institutional maturity frameworks and human-centered AI governance in K-12 schools.">
+    <link rel="canonical" href="https://raisemarkai.com/article-readiness-mirage.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://raisemarkai.com/article-readiness-mirage.html">
+    <meta property="og:title" content="The Readiness Mirage in K-12 Classroom AI | RaiseMark">
+    <meta property="og:description" content="Why heavy classroom AI adoption does not mean teachers are ready. An analysis of institutional maturity frameworks and human-centered AI governance in K-12 schools.">
+    <meta property="og:image" content="https://raisemarkai.com/assets/readiness-mirage.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://raisemarkai.com/article-readiness-mirage.html">
+    <meta name="twitter:title" content="The Readiness Mirage in K-12 Classroom AI | RaiseMark">
+    <meta name="twitter:description" content="Why heavy classroom AI adoption does not mean teachers are ready. An analysis of institutional maturity frameworks and human-centered AI governance in K-12 schools.">
+    <meta name="twitter:image" content="https://raisemarkai.com/assets/readiness-mirage.png">
+
+    <!-- Structured Data (JSON-LD Article Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Readiness Mirage: Why Heavy Classroom AI Use Doesn't Mean Teachers Are Ready for It",
+      "image": "https://raisemarkai.com/assets/readiness-mirage.png",
+      "datePublished": "2026-06-27",
+      "dateModified": "2026-09-13",
+      "author": {
+        "@type": "Organization",
+        "name": "RaiseMark",
+        "url": "https://raisemarkai.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RaiseMark",
+        "url": "https://raisemarkai.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://raisemarkai.com/assets/raisemark-logo.png",
+          "width": 1024,
+          "height": 558
+        }
+      },
+      "url": "https://raisemarkai.com/article-readiness-mirage.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://raisemarkai.com/article-readiness-mirage.html"
+      },
+      "description": "Why heavy classroom AI adoption does not mean teachers are ready. An analysis of institutional maturity frameworks and human-centered AI governance in K-12 schools."
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --navy: #1B3A6B;
+        --navy-deep: #0f2448;
+        --navy-mid: #2c5499;
+        --navy-light: #e8eef8;
+        --navy-pale: #f2f5fb;
+        --crimson: #B22234;
+        --crimson-bright: #cc2a3f;
+        --crimson-pale: #fdf0f2;
+        --white: #ffffff;
+        --off-white: #f8f9fc;
+        --border: #d0daea;
+        --border-dark: #b0bdd4;
+        --text: #141e30;
+        --text-mid: #2d3f60;
+        --text-soft: #5a6d8a;
+        --sidebar-width: 240px;
+        --content-max: 740px;
+        --serif: 'Libre Baskerville', Georgia, serif;
+        --sans: 'Source Sans 3', system-ui, sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      .skip-link { position: absolute; top: -100px; left: 16px; z-index: 2000; background: var(--navy); color: #fff; padding: 12px 20px; font-family: var(--sans); font-weight: 600; text-decoration: none; }
+      .skip-link:focus { top: 0; }
+      @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+      body {
+        background: var(--off-white);
+        color: var(--text);
+        font-family: var(--serif);
+        font-size: 17px;
+        line-height: 1.78;
+        font-weight: 400;
+      }
+
+      /* ─── Top Bar / Masthead ───────────────────── */
+      .masthead {
+        background: var(--navy-deep);
+        border-bottom: 3px solid var(--crimson);
+        padding: 0 24px;
+      }
+
+      .masthead-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+
+      .masthead-logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+
+      .logo-svg-wrap {
+        height: 38px;
+        display: flex;
+        align-items: center;
+      }
+
+      .masthead-tagline {
+        font-family: var(--sans);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.72);
+        border-left: 1px solid rgba(255,255,255,0.15);
+        padding-left: 14px;
+      }
+
+      .masthead-section {
+        font-family: var(--sans);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      /* ─── Layout ─────────────────────────────── */
+      .page-wrap {
+        display: flex;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 56px 24px 80px;
+        gap: 52px;
+        align-items: flex-start;
+      }
+
+      .main-col {
+        flex: 1;
+        min-width: 0;
+        max-width: var(--content-max);
+      }
+
+      /* ─── Sidebar ────────────────────────────── */
+      .sidebar {
+        width: var(--sidebar-width);
+        flex-shrink: 0;
+        position: sticky;
+        top: 32px;
+      }
+
+      .sidebar-inner {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--navy);
+        box-shadow: 0 2px 12px rgba(27,58,107,0.07);
+      }
+
+      .sidebar-header {
+        background: var(--navy);
+        padding: 10px 16px;
+      }
+
+      .sidebar-label {
+        font-family: var(--sans);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.7);
+        display: block;
+      }
+
+      .sidebar-logo-small {
+        margin-top: 4px;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.03em;
+      }
+
+      .sidebar nav { padding: 8px 0; }
+
+      .sidebar nav a {
+        display: block;
+        color: var(--text-mid);
+        text-decoration: none;
+        padding: 7px 16px;
+        font-size: 12.5px;
+        line-height: 1.4;
+        transition: all 0.15s;
+        font-family: var(--sans);
+        font-weight: 400;
+        border-left: 3px solid transparent;
+      }
+
+      .sidebar nav a:hover {
+        color: var(--navy);
+        background: var(--navy-pale);
+        border-left-color: var(--navy-mid);
+      }
+
+      .sidebar nav a.active {
+        color: var(--crimson);
+        background: var(--crimson-pale);
+        border-left-color: var(--crimson);
+        font-weight: 600;
+      }
+
+      .sidebar-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 4px 16px;
+      }
+
+      /* ─── Article Header ─────────────────────── */
+      .article-header {
+        margin-bottom: 44px;
+        padding-bottom: 32px;
+        border-bottom: 2px solid var(--navy);
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--crimson);
+        padding: 4px 10px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--navy-deep);
+        margin-bottom: 14px;
+        letter-spacing: -0.01em;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--crimson);
+      }
+
+      .subtitle {
+        font-family: var(--sans);
+        font-size: 1.05rem;
+        color: var(--text-mid);
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
+
+      .byline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--sans);
+        font-size: 12.5px;
+        color: var(--text-soft);
+        font-weight: 400;
+        letter-spacing: 0.04em;
+      }
+
+      .byline-dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--crimson);
+        display: inline-block;
+      }
+
+      /* ─── Body Typography ────────────────────── */
+      .main-col p {
+        margin-bottom: 1.3em;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      .main-col section:first-of-type p:first-of-type::first-letter {
+        font-family: var(--serif);
+        font-size: 4rem;
+        font-weight: 700;
+        float: left;
+        line-height: 0.78;
+        margin: 6px 8px -4px 0;
+        color: var(--navy);
+      }
+
+      h2 {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--navy-deep);
+        margin: 2.8em 0 0.65em;
+        line-height: 1.2;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      strong { font-weight: 700; color: var(--navy-deep); }
+      em { font-style: italic; }
+
+      a { color: var(--crimson); text-decoration: underline; text-underline-offset: 2px; }
+      a:hover { color: var(--crimson-bright); }
+
+      ul { padding-left: 1.3em; margin-bottom: 1.3em; }
+      li { margin-bottom: 0.5em; }
+
+      /* ─── Pullquote ──────────────────────────── */
+      .pullquote {
+        border-left: 4px solid var(--crimson);
+        padding: 16px 20px;
+        margin: 2em 0;
+        background: var(--navy-pale);
+        border-right: 1px solid var(--border);
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--navy-deep);
+        line-height: 1.6;
+      }
+
+      /* ─── Table ──────────────────────────────── */
+      .table-wrap {
+        overflow-x: auto;
+        margin: 2em 0;
+        border: 1px solid var(--border);
+        box-shadow: 0 2px 8px rgba(27,58,107,0.06);
+      }
+
+      table { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.45; }
+
+      th {
+        background: var(--navy-deep);
+        color: var(--white);
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 0.77rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        padding: 11px 14px;
+        text-align: left;
+      }
+
+      th:first-child { border-left: 3px solid var(--crimson); }
+
+      td {
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        color: var(--text-mid);
+        font-family: var(--sans);
+      }
+
+      tr:nth-child(even) td { background: var(--navy-pale); }
+      tr:hover td { background: #e4eaf5; }
+
+      /* ─── Caution ────────────────────────────── */
+      .caution {
+        background: #fffbf0;
+        border: 1px solid #e8d49a;
+        border-left: 3px solid #c8960a;
+        padding: 18px 20px;
+        margin: 2em 0;
+        font-size: 0.88rem;
+        color: #5a4400;
+        font-family: var(--sans);
+        line-height: 1.6;
+      }
+
+      .caution strong { color: #5a4400; }
+
+      /* ─── Footnote marks ─────────────────────── */
+      .footnote-mark {
+        font-size: 0.7rem;
+        vertical-align: super;
+        line-height: 0;
+        color: var(--crimson);
+        font-family: var(--sans);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .footnote-mark:hover { color: var(--navy); }
+
+      /* ─── Footnotes Section ──────────────────── */
+      .footnotes-section {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 2px solid var(--border);
+        font-size: 0.83rem;
+        color: var(--text-mid);
+        font-family: var(--sans);
+      }
+
+      .footnotes-section h2 {
+        font-size: 0.8rem;
+        border-bottom: none;
+        margin: 0 0 16px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-soft);
+        padding: 0;
+      }
+
+      .footnotes-section ol { padding-left: 20px; }
+      .footnotes-section li { margin-bottom: 8px; line-height: 1.55; }
+      .footnotes-section a { font-size: 0.8rem; word-break: break-all; }
+
+      /* ─── Methodology Tag ────────────────────── */
+      .methodology-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 48px;
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--navy);
+        padding: 7px 14px;
+      }
+
+      .methodology-tag::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--crimson);
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      /* ─── Responsive ─────────────────────────── */
+      @media (max-width: 900px) {
+        .sidebar { display: none; }
+        .page-wrap { padding: 36px 18px 60px; }
+      }
+
+      @media (max-width: 600px) {
+        body { font-size: 15.5px; }
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.3rem; }
+      }
+
+      .section-anchor { scroll-margin-top: 24px; }
+
+      /* ─── Research Box ───────────────────────── */
+      .research-box {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--navy);
+        padding: 18px 20px;
+        margin: 2em 0;
+        box-shadow: 0 1px 8px rgba(27,58,107,0.06);
+      }
+
+      .research-box .rb-label {
+        font-family: var(--sans);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .research-box .rb-label::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 3px;
+        background: var(--crimson);
+        border-radius: 2px;
+      }
+
+      .research-box p {
+        margin-bottom: 0.5em;
+        font-size: 0.92rem;
+        color: var(--text-mid);
+      }
+    </style>
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ─── MASTHEAD ─── -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="index.html" class="masthead-logo">
+        <img src="assets/raisemark-logo.png" alt="The RaiseMark logo in deep navy bold lettering, with the lowercase i rendered in crimson including an oversized circular dot, above the tagline A Higher Standard in navy spaced capitals." width="70" height="38" fetchpriority="high">
+        <span class="masthead-tagline">A Higher Standard</span>
+      </a>
+    <span class="masthead-section">Research &amp; Analysis</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">In This Article</span>
+        <div class="sidebar-logo-small">RaiseMark</div>
+      </div>
+      <nav id="toc">
+        <a href="#introduction" class="toc-link active">Introduction</a>
+        <div class="sidebar-divider"></div>
+        <a href="#two-questions" class="toc-link">Two Questions, Not One</a>
+        <div class="sidebar-divider"></div>
+        <a href="#ready-requirements" class="toc-link">What "Ready" Requires</a>
+        <div class="sidebar-divider"></div>
+        <a href="#bridge" class="toc-link">The Frameworks Bridge</a>
+        <div class="sidebar-divider"></div>
+        <a href="#usage-outrunning" class="toc-link">Usage vs. Competence</a>
+        <div class="sidebar-divider"></div>
+        <a href="#individual-gap" class="toc-link">Deepest Individual Gaps</a>
+        <div class="sidebar-divider"></div>
+        <a href="#equity-gap" class="toc-link">Where Gaps Concentrate</a>
+        <div class="sidebar-divider"></div>
+        <a href="#adoption-readiness" class="toc-link">Adoption vs. Readiness</a>
+        <div class="sidebar-divider"></div>
+        <a href="#audits" class="toc-link">Implications for Audits</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="main-col" id="main-content">
+
+    <header class="article-header">
+      <div class="kicker">Research &amp; Analysis</div>
+      <h1>The Readiness Mirage: <br><em>Why Heavy Classroom AI Use Doesn't Mean Teachers Are Ready for It</em></h1>
+      <p class="subtitle">Reading the CoSN/CGCS Maturity Tool and UNESCO's AI CFT side by side reveals that U.S. K-12 is facing a nested readiness gap — and the weakest link sits where the two frameworks meet.</p>
+      <div class="byline">
+        June 2026
+        <span class="byline-dot"></span>
+        Framework Crosswalk Analysis
+        <span class="byline-dot"></span>
+        RaiseMark — A Higher Standard
+      </div>
+    </header>
+
+    <!-- ARTICLE HERO IMAGE -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="assets/readiness-mirage.png" alt="Readiness Mirage illustration showing institutional readiness frameworks versus individual teacher competence in K-12 education" width="1024" height="559" fetchpriority="high" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </div>
+
+    <!-- EPIGRAPH -->
+    <div class="pullquote" style="margin: 2em 0 2.5em; text-align: center; border-left: 4px solid var(--crimson); border-right: 1px solid var(--border);">
+      <p style="margin-bottom: 0;">“The greatest obstacle to discovery is not ignorance, it is the illusion of knowledge.”</p>
+      <cite>— Daniel J. Boorstin</cite>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <section id="introduction" class="section-anchor">
+      <p>Ask a U.S. school district whether it's ready for AI, and odds are good you'll get a confident yes. 85% of teachers now report some classroom AI use, up from a small minority just three years ago.<a href="#fn-1" class="footnote-mark">1</a> Ask whether the district's teachers are actually competent to use it well, and the honest answer is far less confident, and far less measured. Two different frameworks exist to answer these two different questions. One scores the institution, one scores the individual. Reading them side by side shows that U.S. K-12 isn't facing one readiness gap. It's facing two, nested inside each other, with the weakest link sitting exactly where the two frameworks meet.</p>
+    </section>
+
+    <!-- TWO QUESTIONS, NOT ONE -->
+    <section id="two-questions" class="section-anchor">
+      <h2>Two Questions, Not One</h2>
+      <p>The CoSN/CGCS Gen AI Maturity Tool and UNESCO's AI Competency Framework for Teachers (AI CFT) sound like they measure the same thing. They don't. CoSN asks whether the district, as an institution, is organizationally ready to support AI. CoSN scores seven domains, from Executive Leadership and Data to Risk/Legal, as emerging, developing, or mature.<a href="#fn-2" class="footnote-mark">2</a> UNESCO asks whether the individual teacher inside that institution is actually competent to use AI, scoring five dimensions, from Human-centred mindset to AI pedagogy, as Acquire, Deepen, or Create.<a href="#fn-3" class="footnote-mark">3</a></p>
+      <p>Used alone, either framework tends to conflate two genuinely different failure modes: an institution that isn't supporting its people, and an individual who isn't yet competent despite institutional support. Treat readiness as one question and you'll misdiagnose half of what you find. Treat it as two, and a more precise picture appears, one made more urgent by how recent this whole area of measurement is: since 2022, only seven countries had built any AI framework for teachers at all.<a href="#fn-3" class="footnote-mark">3</a></p>
+    </section>
+
+    <!-- WHAT READY REQUIRES -->
+    <section id="ready-requirements" class="section-anchor">
+      <h2>What "Ready" Actually Requires</h2>
+      <p>UNESCO's three levels aren't just labels; they describe genuinely different capabilities. At <strong>Acquire</strong>, a teacher has the essential competencies to evaluate, select, and appropriately use AI tools. At <strong>Deepen</strong>, the level UNESCO treats as full competence, a teacher designs pedagogical strategies and materials that integrate AI into the classroom, with human-centred, ethically sound practice. At <strong>Create</strong>, a teacher is driving curriculum innovation and systemic change. Stacked together, fifteen competencies across five dimensions and three levels yield forty-five distinct assessment criteria, a genuinely fine-grained yardstick.</p>
+      <p>The trouble is that the yardstick is more developed than anyone's ability to use it. Teacher AI competence is new enough as a field of study that well-recognized measurement instruments barely exist, particularly in K-12; scales built specifically to operationalize UNESCO's framework, like TAICS, were only recently created.<a href="#fn-4" class="footnote-mark">4</a> The destination is mapped in detail. The instrument for finding out where any given teacher currently stands on that map is still being built.</p>
+    </section>
+
+    <!-- THE BRIDGE BETWEEN THE TWO FRAMEWORKS -->
+    <section id="bridge" class="section-anchor">
+      <h2>The Bridge Between the Two Frameworks</h2>
+      <p>CoSN's domains and UNESCO's dimensions aren't parallel lists measuring the same thing from different angles. They're enabler and outcome. Each individual competency a teacher needs depends on one or more organizational domains being mature enough to actually produce it.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>UNESCO Dimension (Individual)</th>
+              <th>Enabling CoSN Domain(s)</th>
+              <th>Best U.S. Proxy Indicator</th>
+              <th>Inferred Typical Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Human-centred mindset</strong></td>
+              <td>Executive Leadership; Risk/Legal</td>
+              <td>Leaders far less concerned about critical-thinking harm than parents (22% vs. 61%)</td>
+              <td>Acquire (partial)</td>
+            </tr>
+            <tr>
+              <td><strong>Ethics of AI</strong></td>
+              <td>Data; Security; Risk/Legal</td>
+              <td>~22% of teachers trained on AI-specific risks</td>
+              <td>Below Acquire for most</td>
+            </tr>
+            <tr>
+              <td><strong>AI foundations &amp; applications</strong></td>
+              <td>Technical; Operational; Academic AI Literacy</td>
+              <td>~53% instructional use, ~85% any use, but knowledge widely "fragmented"</td>
+              <td>Acquire behaviorally, shallow underneath</td>
+            </tr>
+            <tr>
+              <td><strong>AI pedagogy</strong></td>
+              <td>Academic AI Literacy (primary)</td>
+              <td>Districts sequencing proficiency before student integration</td>
+              <td>Pre-Deepen</td>
+            </tr>
+            <tr>
+              <td><strong>AI for professional learning</strong></td>
+              <td>Academic AI Literacy; Executive Leadership</td>
+              <td>About half received any training; 43% had &ge;1 session by fall 2024</td>
+              <td>Acquire (partial)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The crosswalk's central insight sits in one row: Academic AI Literacy, added to the CoSN model in November 2024 specifically to assess how prepared educators are to integrate AI<a href="#fn-5" class="footnote-mark">5</a>, is the load-bearing bridge between the two frameworks. It's the one organizational domain whose explicit job is to manufacture individual competency. It's also the domain districts feel least mature on: in CoSN's 2025 member survey, only 10% considered themselves well prepared with ongoing AI-literacy support.<a href="#fn-6" class="footnote-mark">6</a> High usage and low competence can coexist for a long time when the bridge connecting them is this thin.</p>
+    </section>
+
+    <!-- USAGE IS OUTRUNNING COMPETENCE -->
+    <section id="usage-outrunning" class="section-anchor">
+      <h2>Usage Is Outrunning Competence</h2>
+      <p>Read the adoption numbers on their own, and U.S. K-12 looks like it's moving fast in the right direction. The share of teachers using generative AI for work doubled, from 25% to 53%, between 2023–24 and 2024–25, and 85% reported some classroom use in 2024–25, up from just 18% as recently as fall 2023.<a href="#fn-1" class="footnote-mark">1</a> Read the same numbers through UNESCO's lens, and the story changes. Acquire isn't about frequency of use; it's about the capacity to evaluate, select, and use a tool appropriately. The peer-reviewed literature on educator AI knowledge backs up the distinction, describing that knowledge as frequently fragmented or superficial in ways that limit confidence and sustained use rather than reflect genuine mastery of it.<a href="#fn-8" class="footnote-mark">8</a> A teacher using AI daily without that evaluative capacity hasn't achieved Acquire. They're ahead of acquiring it, behaving, in framework terms, like they're already at Deepen while resourced like they're still at Acquire, and unevenly so. In other words, they're using AI more confidently than competently.</p>
+    </section>
+
+    <!-- WHERE THE INDIVIDUAL GAP RUNS DEEPEST -->
+    <section id="individual-gap" class="section-anchor">
+      <h2>Where the Individual Gap Runs Deepest</h2>
+      <p>Broken out by UNESCO's five dimensions, the gap concentrates hard in two places. <strong>Ethics of AI</strong> is the thinnest: only about 22% of 6th–12th grade teachers report any training on AI's risks, such as inaccuracy or bias<a href="#fn-1" class="footnote-mark">1</a>, leaving most teachers below Acquire on the dimension UNESCO treats as the framework's ethical backbone. <strong>AI pedagogy</strong>, the Deepen threshold, is barely reached at scale, because districts are deliberately sequencing educator proficiency ahead of integrating AI into student learning experiences; designing AI-integrated instruction is, by districts' own admission, a later stage they haven't arrived at yet.<a href="#fn-10" class="footnote-mark">10</a> Professional learning is thinner than the headline numbers suggest, too: seven in ten teachers reported no AI training as of spring 2024, rising to 43% with at least one session by fall 2024<a href="#fn-9" class="footnote-mark">9</a>, and a single session rarely builds the sustained, reflective practice the dimension actually requires. Even the leadership layer shows a quiet version of the same gap: 61% of parents, against just 22% of district leaders, agreed that greater AI use could harm students' critical-thinking skills<a href="#fn-7" class="footnote-mark">7</a>, a divergence suggesting the human-centred caution UNESCO asks for hasn't been internalized evenly between the people making the decisions and the people living with them.</p>
+
+      <div class="caution">
+        <strong>A note on what none of this actually measures.</strong> No nationally representative instrument scores U.S. K-12 teachers directly against UNESCO's levels. Every level placement above is the best available inference from training rates, usage rates, and perception surveys, not a direct score, and the instruments that would make a direct score possible, like TAICS, are only now being built.<a href="#fn-4" class="footnote-mark">4</a> That absence isn't a footnote to this analysis. It's one of its findings. A field that can't yet measure individual competency at scale is a field where "readiness" claims, at any level, deserve real scrutiny.
+      </div>
+    </section>
+
+    <!-- WHERE THE GAPS CONCENTRATE -->
+    <section id="equity-gap" class="section-anchor">
+      <h2>Where the Gaps Concentrate</h2>
+      <p>Neither gap is distributed evenly, and they don't fail independently; they stack in the same schools. District training of teachers on AI more than doubled, from 23% to 48%, between 2023 and 2024, but low-poverty districts far outpaced high-poverty ones, 67% to 39%<a href="#fn-10" class="footnote-mark">10</a>, a divide RAND projects will persist rather than close on its own. Because the organizational domains that are supposed to produce individual competency are weaker in high-poverty districts to begin with, the UNESCO competencies they're meant to generate will be correspondingly weaker there too. The two gaps don't just coexist. In the schools that can least afford it, they compound.</p>
+    </section>
+
+    <!-- IS 85% ADOPTION THE SAME AS READINESS? -->
+    <section id="adoption-readiness" class="section-anchor">
+      <h2>Is 85% Adoption the Same as Readiness?</h2>
+      <p>A natural objection to all of this is that 85% adoption already is readiness; if teachers are using the tools, doesn't that demonstrate they can? UNESCO's own definitions are the clearest rebuttal: Acquire requires evaluative, appropriate use, and the peer-reviewed finding that educator AI knowledge is widely fragmented suggests much of that 85% isn't evaluative at all.<a href="#fn-8" class="footnote-mark">8</a> Usage demonstrates access and willingness. It doesn't demonstrate competence. Treating the two as interchangeable is the exact measurement error this crosswalk exists to correct.</p>
+      <p>The same divergence between apparent activity and actual readiness appears on the student side of the ledger. In RaiseMark&rsquo;s research briefing, <a href="article-app-store-layer.html">Two-Thirds of App-Store AI Tools Market to Schools, but Fewer Than 3% Protect Student Data</a>, an analysis of 1,455 tools revealed that 21.4% operate exclusively through mobile app stores without a website, bypassing district procurement, monitoring, and compliance filters entirely.</p>
+      <p>A second, more reassuring-sounding tension dissolves the same way once the two frameworks are kept separate. Training rates climbing from 48% toward a projected 74%<a href="#fn-9" class="footnote-mark">9</a> read as organizational progress, while UNESCO-lens indicators—22% trained on ethics, pedagogy still pre-Deepen—read as individual stagnation. These aren't contradictory findings competing for the same conclusion; they're two different scoreboards. A district can legitimately advance from emerging to developing on CoSN by simply offering more training, while the teachers it serves remain stuck at Acquire, because offering training and building competence are not the same accomplishment.</p>
+      <p>One real limitation deserves stating plainly. Neither framework is an empirically validated, U.S.-normed measurement instrument. UNESCO's framework is global, and has been characterized in peer-reviewed commentary as still in an early, draft rollout phase<a href="#fn-8" class="footnote-mark">8</a>; CoSN is U.S.-built but vendor-supported. Both are authoritative as structures, clearly specified, widely adopted as references, and neither should yet be treated as a calibrated scale. That's the honest reason every competency-level placement in this piece is a reasoned inference, not a measured score.</p>
+    </section>
+
+    <!-- WHAT THIS MEANS FOR AUDITS -->
+    <section id="audits" class="section-anchor">
+      <h2>What This Means for Audits</h2>
+      <p>Put the two frameworks together and the right question changes, from "how big is the gap?" to "which gap, and at which level?" Organizationally, most U.S. districts are early-stage but moving. Individually, most teachers are using AI well ahead of the competence that use implies, with ethics and AI-integrated pedagogy the clearest deficits. The two frameworks meet at exactly one point, CoSN's Academic AI Literacy domain, the institution's actual mechanism for manufacturing individual competence, and that's precisely where readiness is thinnest. That's not a coincidence. It's the explanation for why adoption has managed to outrun both axes at once.</p>
+      <p>Three things follow for anyone running an audit, rather than just reading about one &mdash; which is why RaiseMark's <a href="ai-360-review.html">AI 360 Review</a> evaluates both institutional infrastructure and classroom competency under our structured <a href="method.html">Methodology</a>:</p>
+      <ul>
+        <li><strong>Score the two axes separately, and report the distance between them.</strong> A "developing" district can still be staffed almost entirely by "Acquire"-level teachers. Folding both into a single readiness number hides the exact gap that matters most.</li>
+        <li><strong>Target the bridge, not generic training.</strong> Academic AI Literacy and AI for professional learning are where organizational support is supposed to become individual competence. A one-off training session shows up as progress on a checklist without producing the thing the checklist is actually trying to measure.</li>
+        <li><strong>Weight ethics and pedagogy more heavily than usage.</strong> Usage is already high and still climbing on its own. It isn't where the real gap lives. Ethics and AI-integrated pedagogy are where the individual competency deficit is widest, and where an audit's attention is most needed.</li>
+      </ul>
+      <p>None of this is fully resolved, and it shouldn't pretend to be. There's no nationally representative scoring of U.S. teachers against UNESCO's levels yet, and no public distribution of districts across CoSN's either, so for now, the size of each gap is estimated, not known. That isn't a weakness in this analysis. It's the strongest argument for building the instrument that would finally know it.</p>
+    </section>
+
+    <!-- RELATED RESEARCH & DISTRICT GOVERNANCE -->
+    <div class="research-box">
+      <div class="rb-label">Related Research &amp; District Governance</div>
+      <p>Explore related briefings on school AI governance, shadow infrastructure, and verification:</p>
+      <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+        <li><a href="article-app-store-layer.html"><strong>Two-Thirds of App-Store AI Tools Market to Schools, but Fewer Than 3% Protect Student Data</strong></a> &mdash; Analysis of 1,455 tools operating in shadow app stores without district oversight.</li>
+        <li><a href="article-confidence-scores.html"><strong>The Trouble With AI's Confidence Scores</strong></a> &mdash; Why asking models how sure they are fails without calibrated prompt design.</li>
+        <li><a href="ai-360-review.html"><strong>AI 360 Review</strong></a> &mdash; Comprehensive diagnostic audit evaluating organizational maturity, tool telemetry, and classroom usage.</li>
+      </ul>
+    </div>
+
+    <span class="methodology-tag">Research Synthesis · June 2026</span>
+
+    <!-- FOOTNOTES -->
+    <section class="footnotes-section">
+      <h2>Notes &amp; Sources</h2>
+      <ol>
+        <li id="fn-1">Center for Democracy &amp; Technology national survey data, reported via GovTech and EdWeek; classroom AI use (85%, up from 18% in fall 2023), teacher training rates, and the 22% of teachers trained specifically on AI-related risks such as bias and inaccuracy. <a href="https://www.govtech.com" target="_blank">govtech.com</a>; <a href="https://www.edweek.org" target="_blank">edweek.org</a></li>
+        <li id="fn-2">CoSN/CGCS, K-12 Generative AI Maturity Tool: seven organizational domains scored emerging, developing, or mature. Framework purpose and domains also confirmed by the Wisconsin Department of Public Instruction's official AI guidance. <a href="https://www.cosn.org" target="_blank">cosn.org</a></li>
+        <li id="fn-3">UNESCO, AI Competency Framework for Teachers: five dimensions, fifteen competencies, three progression levels (Acquire, Deepen, Create). Official framework documentation. <a href="https://www.unesco.org" target="_blank">unesco.org</a></li>
+        <li id="fn-4"><em>International Journal of Educational Technology in Higher Education</em> (Springer), validation study for the TAICS teacher AI self-efficacy scale, grounded in UNESCO's framework and TPACK; cited for the current immaturity of teacher-AI-competence measurement instruments. <a href="https://link.springer.com" target="_blank">link.springer.com</a></li>
+        <li id="fn-5">CoSN/CGCS, addition of the Academic AI Literacy domain to the Maturity Tool, November 2024. <a href="https://www.cgcs.org" target="_blank">cgcs.org</a></li>
+        <li id="fn-6">CoSN, 2025 Operational AI in Education Member Survey (n&asymp;281); 10% of respondents reported feeling well prepared with ongoing AI-literacy support. <a href="https://www.cosn.org" target="_blank">cosn.org</a></li>
+        <li id="fn-7">RAND Corporation, RR-A134-25 and RR-A4180-1, nationally representative teacher surveys, 2023–24 and 2024–25; usage growth and the leader/parent perception gap on critical-thinking risk. <a href="https://www.rand.org" target="_blank">rand.org</a></li>
+        <li id="fn-8">Peer-reviewed journal article (PMC), fragmented AI knowledge among general and special education teachers, and the gap between awareness and competence. <a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank">pmc.ncbi.nlm.nih.gov</a></li>
+        <li id="fn-9">EdWeek Research Center, teacher AI training rates, spring and fall 2024, with a 74% projection. <a href="https://www.edweek.org" target="_blank">edweek.org</a></li>
+        <li id="fn-10">K-12 Dive, reporting RAND district-panel data, training-rate growth (23% to 48%) and the poverty-based disparity (67% vs. 39%). <a href="https://www.k12dive.com" target="_blank">k12dive.com</a></li>
+      </ol>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc-link');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const id = '#' + entry.target.id;
+        const active = document.querySelector(`.toc-link[href="${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

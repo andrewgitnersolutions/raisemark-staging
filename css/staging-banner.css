@@ -1,0 +1,156 @@
+/* RaiseMark Partner Staging Review Banner Styles
+   Adheres strictly to css/global.css design tokens
+*/
+
+:root {
+    --staging-banner-height: 46px;
+}
+
+#raisemark-staging-banner {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: var(--staging-banner-height);
+    background-color: var(--navy, #1B3A6B);
+    color: var(--white, #FFFFFF);
+    z-index: 10000;
+    box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+    font-family: var(--font-heading, system-ui, -apple-system, sans-serif);
+    font-size: 0.8125rem;
+    border-bottom: 2px solid var(--crimson, #A8192E);
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+.staging-banner__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.staging-banner__left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.staging-banner__badge {
+    background-color: var(--crimson, #A8192E);
+    color: var(--white, #FFFFFF);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.staging-banner__label {
+    font-weight: 500;
+    color: var(--near-white, #F0F2F5);
+}
+
+.staging-banner__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.staging-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--ease, 0.3s ease), color var(--ease, 0.3s ease);
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.staging-banner__btn--primary {
+    background-color: var(--white, #FFFFFF);
+    color: var(--navy, #1B3A6B);
+}
+
+.staging-banner__btn--primary:hover,
+.staging-banner__btn--primary:focus-visible {
+    background-color: var(--crimson-light, #F7E8EA);
+    color: var(--crimson, #A8192E);
+}
+
+.staging-banner__btn--outline {
+    background-color: transparent;
+    color: var(--white, #FFFFFF);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.staging-banner__btn--outline:hover,
+.staging-banner__btn--outline:focus-visible {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--white, #FFFFFF);
+}
+
+.staging-banner__btn--close {
+    background: transparent;
+    border: none;
+    color: var(--near-white, #F0F2F5);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    border-radius: 3px;
+}
+
+.staging-banner__btn--close:hover,
+.staging-banner__btn--close:focus-visible {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white, #FFFFFF);
+}
+
+#raisemark-staging-restore-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--navy, #1B3A6B);
+    color: var(--white, #FFFFFF);
+    border: 1px solid var(--crimson, #A8192E);
+    border-radius: 20px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+    display: none;
+}
+
+#raisemark-staging-restore-btn:hover,
+#raisemark-staging-restore-btn:focus-visible {
+    background-color: var(--navy-mid, #2A5298);
+}
+
+@media (max-width: 768px) {
+    .staging-banner__container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+    }
+    .staging-banner__actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}

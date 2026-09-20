@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL8Q68XWCF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZL8Q68XWCF');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 360 Review for K-12 Districts | RaiseMark</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="description"
+        content="The AI 360 Review by RaiseMark AI is an evidence-grounded diagnostic audit evaluating active AI tools, shadow AI, and student data privacy across K-12 school districts. Delivers a prioritized cabinet roadmap within 3-4 weeks.">
+    <link rel="canonical" href="https://raisemarkai.com/ai-360-review.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://raisemarkai.com/ai-360-review.html">
+    <meta property="og:title" content="AI 360 Review for K-12 Districts | RaiseMark">
+    <meta property="og:description"
+        content="The AI 360 Review by RaiseMark AI is an evidence-grounded diagnostic audit evaluating active AI tools, shadow AI, and student data privacy across K-12 school districts. Delivers a prioritized cabinet roadmap within 3-4 weeks.">
+    <meta property="og:image" content="https://raisemarkai.com/assets/raisemark-logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://raisemarkai.com/ai-360-review.html">
+    <meta name="twitter:title" content="AI 360 Review for K-12 Districts | RaiseMark">
+    <meta name="twitter:description"
+        content="The AI 360 Review by RaiseMark AI is an evidence-grounded diagnostic audit evaluating active AI tools, shadow AI, and student data privacy across K-12 school districts. Delivers a prioritized cabinet roadmap within 3-4 weeks.">
+    <meta name="twitter:image" content="https://raisemarkai.com/assets/raisemark-logo.png">
+
+    <!-- JSON-LD Structured Data (Service Schema nested in ProfessionalService) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://raisemarkai.com/#organization",
+          "name": "RaiseMark",
+          "url": "https://raisemarkai.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://raisemarkai.com/assets/raisemark-logo.png",
+            "width": 1024,
+            "height": 558
+          },
+          "description": "Evidence-based AI readiness audits, policy development, and advisory services for K-12 school districts."
+        },
+        {
+          "@type": "Service",
+          "@id": "https://raisemarkai.com/ai-360-review.html#service",
+          "name": "K-12 AI 360 Review (AI Profile Snapshot)",
+          "serviceType": "Educational AI Diagnostic & Shadow AI Audit",
+          "description": "An evidence-grounded diagnostic audit evaluating what AI tools are active across school districts, analyzing network telemetry, student data privacy risks under FERPA and COPPA, and delivering actionable governance recommendations.",
+          "provider": {
+            "@id": "https://raisemarkai.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+      /* 360 Review Scoped Styles */
+      .review-badge {
+        display: inline-block;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--crimson);
+        background: var(--crimson-light);
+        padding: 0.35rem 0.85rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        max-width: 100%;
+        line-height: 1.4;
+      }
+
+      .review-callout {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--crimson);
+        border-radius: 6px;
+        padding: 1.5rem 1.75rem;
+        margin: 1.75rem 0 2rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .review-callout p {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--text-dark);
+      }
+
+      .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.25rem;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 1.5rem;
+        margin: 2.5rem 0 1rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .stat-item {
+        border-left: 3px solid var(--navy);
+        padding-left: 1rem;
+      }
+
+      .stat-item strong {
+        display: block;
+        font-size: 1.35rem;
+        color: var(--navy);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-item span {
+        font-size: 0.875rem;
+        color: var(--text-body);
+        line-height: 1.4;
+      }
+
+      .process-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-top: 2rem;
+      }
+
+      .timeline-step {
+        display: flex;
+        gap: 1.5rem;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--ease), box-shadow var(--ease);
+      }
+
+      .timeline-step:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .timeline-step__marker {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.15rem;
+      }
+
+      .timeline-step:nth-child(even) .timeline-step__marker {
+        background: var(--navy-mid);
+      }
+
+      .timeline-step__content h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.25rem;
+        color: var(--navy);
+      }
+
+      .timeline-step__time {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--crimson);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-step__content p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-body);
+      }
+
+      .quadrant-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .quadrant-box {
+        padding: 1.25rem;
+        border-radius: 6px;
+        background: var(--white);
+        border: 1px solid var(--border);
+      }
+
+      .quadrant-box strong {
+        display: block;
+        font-size: 1.05rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .quadrant-box--retain { border-top: 4px solid #2E7D32; }
+      .quadrant-box--retain strong { color: #2E7D32; }
+      .quadrant-box--rightsize { border-top: 4px solid #F57F17; }
+      .quadrant-box--rightsize strong { color: #F57F17; }
+      .quadrant-box--sunset { border-top: 4px solid var(--crimson); }
+      .quadrant-box--sunset strong { color: var(--crimson); }
+      .quadrant-box--discourage { border-top: 4px solid #455A64; }
+      .quadrant-box--discourage strong { color: #455A64; }
+
+      .quadrant-box p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-body);
+        line-height: 1.4;
+      }
+
+      @media (max-width: 768px) {
+        .timeline-step {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .timeline-step__marker {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <img src="assets/raisemark-logo.png"
+                    alt="The RaiseMark logo in deep navy bold lettering, with the lowercase i rendered in crimson including an oversized circular dot, above the tagline A Higher Standard in navy spaced capitals."
+                    width="88" height="48" style="height: 48px; width: auto;" fetchpriority="high">
+            </a>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="team.html" class="nav-link">Team</a></li>
+                    <li><a href="method.html" class="nav-link">Method</a></li>
+                    <li><a href="ai-360-review.html" class="nav-link active">360 Review</a></li>
+                    <li><a href="ai-policy-tracker.html" class="nav-link">50-State Tracker</a></li>
+                    <li><a href="policy-check-up.html" class="nav-link">Policy Check-Up</a></li>
+                    <li><a href="articles.html" class="nav-link">Articles</a></li>
+                    <li><a href="contact.html" class="btn btn--primary btn--sm">Work With Us</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="hero" style="padding-bottom: 2.5rem;">
+            <div class="container">
+                <div class="hero__inner" style="max-width: 860px; margin: 0 auto; text-align: left;">
+                    <span class="review-badge">Diagnostic Entry Engagement · Stage 01: Compass</span>
+                    <h1 style="margin-bottom: 0.75rem;">AI 360 Review: School District Readiness &amp; Shadow AI Audit</h1>
+                    <p style="font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.25rem; color: var(--text-dark);">
+                        The <strong>AI 360 Review</strong> by RaiseMark AI is an evidence-grounded diagnostic audit evaluating active AI applications, unsanctioned shadow AI, and student data privacy risks across K-12 school districts. Built specifically for superintendents, CTOs, and school boards, this 3-to-4-week assessment equips leadership with comprehensive tech stack visibility, FERPA and COPPA compliance alignment, and a prioritized 90-day governance roadmap.
+                    </p>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                        <a href="contact.html" class="btn btn--primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+                            Request a 360 Review Consultation &rarr;
+                        </a>
+                        <a href="method.html" class="btn btn--outline" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+                            View the Compass, Map, Path Methodology
+                        </a>
+                    </div>
+
+                    <!-- Key Engagement Parameters -->
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <strong>~3–4 Weeks</strong>
+                            <span>Rapid, structured engagement timeline</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>Virtual-First</strong>
+                            <span>Minimal administrative lift for district IT &amp; cabinet</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>CUEI-AI Framework</strong>
+                            <span>Proprietary cross-tool evaluation of risks, drawbacks, and benefits</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>Board-Ready</strong>
+                            <span>Executive briefing and prioritized 90-day roadmap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Core Question -->
+        <section class="section section--alt" style="padding: 3rem 0;">
+            <div class="container">
+                <div style="max-width: 860px; margin: 0 auto;">
+                    <div class="review-callout">
+                        <p style="font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; text-transform: uppercase; font-size: 0.8125rem; letter-spacing: 0.06em;">
+                            The Core Governance Question
+                        </p>
+                        <p style="font-size: 1.2rem; font-style: italic; color: var(--text-dark);">
+                            &ldquo;What AI tools are currently active inside our school district, who is using them, and where is our student data exposed?&rdquo;
+                        </p>
+                    </div>
+
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-body); margin-bottom: 1.25rem;">
+                        Before a district can adopt an enforceable Acceptable Use Policy or evaluate expensive AI vendor contracts, leadership must establish baseline visibility. In typical district environments, central IT oversees fewer than half of the AI tools actively accessed in classrooms. The remainder operates in the background &mdash; ungoverned browser extensions, personal teacher accounts, consumer chatbots, and mobile utilities that bypass procurement reviews.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-body); margin-bottom: 0;">
+                        The <strong>AI 360 Review</strong> (our Compass stage) replaces guesswork with empirical inventory. We do not sell software, and we do not grade districts with punitive labels. We give superintendents, CTOs, and boards the clear signal needed to govern with confidence.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engagement Phases: How It Works -->
+        <section class="section" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: left; max-width: 860px; margin: 0 auto 1.5rem;">
+                    <span class="review-badge">Four-Phase Structured Delivery</span>
+                    <h2>How Does RaiseMark AI Conduct an AI Readiness and Shadow AI Audit?</h2>
+                    <p style="font-size: 1.05rem; color: var(--text-body); margin-bottom: 0;">
+                        Our review is designed for busy district leaders. We handle the heavy investigative lifting through data reconciliation, log analysis, and confidential interviews.
+                    </p>
+                </div>
+
+                <div class="process-timeline" style="max-width: 860px; margin: 0 auto;">
+                    <!-- Phase 1 -->
+                    <div class="timeline-step">
+                        <div class="timeline-step__marker">01</div>
+                        <div class="timeline-step__content">
+                            <span class="timeline-step__time">Week 0 &middot; Kickoff &amp; Setup</span>
+                            <h3>Orientation &amp; Data Stream Intake</h3>
+                            <p>
+                                <strong>Stakeholder Alignment:</strong> Preliminary kickoff meeting with your designated district liaison. We establish secure data exchange protocols, define audit boundaries, and distribute our de-identified staff AI usage survey to capture frontline classroom workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="timeline-step">
+                        <div class="timeline-step__marker">02</div>
+                        <div class="timeline-step__content">
+                            <span class="timeline-step__time">Week 1 &middot; Discovery &amp; Telemetry</span>
+                            <h3>Log Analysis &amp; Shadow AI Detection</h3>
+                            <p>
+                                <strong>Telemetry Triangulation:</strong> We analyze network traffic reports, web filtering logs, Single Sign-On (SSO) app catalogs, and software procurement accounts. This isolates sanctioned enterprise software from unvetted browser extensions and rogue mobile apps handling student data.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="timeline-step">
+                        <div class="timeline-step__marker">03</div>
+                        <div class="timeline-step__content">
+                            <span class="timeline-step__time">Week 2 &middot; Analysis &amp; Stakeholder Interviews</span>
+                            <h3>Cross-Platform Analysis &amp; Ground Truth</h3>
+                            <p>
+                                <strong>CUEI-AI Evaluation:</strong> We conduct confidential virtual interviews with curriculum directors, instructional technology leaders, and digital media specialists. Every discovered tool is evaluated through our proprietary <strong>CUEI-AI framework</strong> to identify FERPA and COPPA compliance exposures, model training risks, and redundant contracts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="timeline-step">
+                        <div class="timeline-step__marker">04</div>
+                        <div class="timeline-step__content">
+                            <span class="timeline-step__time">Week 3 &middot; Reporting &amp; Action</span>
+                            <h3>Cabinet Briefing &amp; Executive Roadmap</h3>
+                            <p>
+                                <strong>Board-Ready Synthesis:</strong> We deliver a formal audit report, tool-by-tool governance determinations, and an executive briefing for cabinet leadership detailing a prioritized 90-day action plan for school board policy adoption.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decision Framework Strip -->
+        <section class="section section--alt" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: left; max-width: 860px; margin: 0 auto 1.5rem;">
+                    <span class="review-badge">Proprietary Methodology</span>
+                    <h2>How Does the CUEI-AI Framework Evaluate Student Privacy, Vendor Risk, and Educational Efficacy?</h2>
+                    <p style="font-size: 1.05rem; color: var(--text-body); line-height: 1.7; margin-bottom: 1rem;">
+                        School districts rarely adopt AI in a single category. Instead, classrooms and central offices run dozens of disparate applications simultaneously &mdash; from student-facing writing assistants and adaptive math tutors to administrative workflow utilities and automated meeting summarizers.
+                    </p>
+                    <p style="font-size: 1.05rem; color: var(--text-body); line-height: 1.7; margin-bottom: 0;">
+                        Our proprietary <strong>CUEI-AI framework</strong> provides a standardized evaluation methodology across vastly different tools, allowing leadership to systematically determine their specific risk surfaces, operational drawbacks, and potential educational benefits. Rather than leaving leadership with abstract ratings, this analysis translates directly into four concrete administrative determinations:
+                    </p>
+                </div>
+
+                <div class="quadrant-grid" style="max-width: 860px; margin: 2rem auto 0;">
+                    <div class="quadrant-box quadrant-box--retain">
+                        <strong>RETAIN</strong>
+                        <p>High efficacy and vetted privacy compliance. Maintain enterprise contract and support continued adoption.</p>
+                    </div>
+                    <div class="quadrant-box quadrant-box--rightsize">
+                        <strong>RIGHT-SIZE</strong>
+                        <p>Valuable capability with poor license usage. Renegotiate seat counts or consolidate redundant contracts.</p>
+                    </div>
+                    <div class="quadrant-box quadrant-box--sunset">
+                        <strong>SUNSET</strong>
+                        <p>Low usage rates, redundant capabilities, or unfavorable renewal terms. Structured phase-out with minimal classroom disruption.</p>
+                    </div>
+                    <div class="quadrant-box quadrant-box--discourage">
+                        <strong>DISCOURAGE</strong>
+                        <p>Unacceptable student privacy risks, model training exposure, or harmful pedagogical profile. Block at network edge.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Your District Receives -->
+        <section class="section" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: left; max-width: 860px; margin: 0 auto 2.5rem;">
+                    <span class="review-badge">Tangible Deliverables</span>
+                    <h2>What Deliverables Does Your District Cabinet Receive From an AI 360 Review?</h2>
+                    <p style="font-size: 1.05rem; color: var(--text-body); margin-bottom: 0;">
+                        We deliver concrete, executive-level artifacts built specifically for superintendents, curriculum leaders, and school boards.
+                    </p>
+                </div>
+
+                <div class="card-grid" style="max-width: 860px; margin: 0 auto;">
+                    <div class="card card--navy">
+                        <h3>01 &middot; Comprehensive AI Tech Stack Inventory</h3>
+                        <p>
+                            <strong>Reconciled Master Ledger:</strong> A complete catalog of every AI application identified across network traffic, SSO integrations, and teacher workflows—categorizing enterprise contracts, department pilots, and unvetted shadow AI.
+                        </p>
+                    </div>
+
+                    <div class="card card--crimson">
+                        <h3>02 &middot; Shadow AI &amp; Privacy Vulnerability Map</h3>
+                        <p>
+                            <strong>Statutory Risk Exposure:</strong> Documented analysis of unapproved tools processing student work, teacher grading, or district credentials, identifying immediate compliance vulnerabilities under FERPA, COPPA, and state privacy statutes.
+                        </p>
+                    </div>
+
+                    <div class="card card--navy">
+                        <h3>03 &middot; CUEI-AI Portfolio Determinations</h3>
+                        <p>
+                            <strong>Objective Vendor Rationale:</strong> Actionable categorizations (Retain, Right-Size, Sunset, Discourage) for every instructional and administrative tool, equipping procurement teams with clear justification for contract negotiations or network restrictions.
+                        </p>
+                    </div>
+
+                    <div class="card card--crimson">
+                        <h3>04 &middot; Cabinet Briefing &amp; 90-Day Governance Roadmap</h3>
+                        <p>
+                            <strong>Board-Ready Strategic Roadmap:</strong> An executive presentation and sequential milestone plan enabling superintendents to draft enforceable Acceptable Use Policies and lead informed school board governance sessions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect with Compass, Map, Path -->
+        <section class="section section--alt" style="padding: 3.5rem 0;">
+            <div class="container">
+                <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+                    <span class="review-badge">The RaiseMark Methodology</span>
+                    <h2 style="margin-bottom: 0.75rem;">How Does the AI 360 Review Inform School Board Policy Adoption?</h2>
+                    <p style="font-size: 1.05rem; color: var(--text-body); line-height: 1.6; margin-bottom: 2rem;">
+                        The <strong>AI 360 Review</strong> is the foundational Compass stage of RaiseMark's governance model. Once your district establishes baseline visibility, our team can guide your cabinet through <strong>Map</strong> (Acceptable Use Policy development and board adoption) and <strong>Path</strong> (ongoing membership intelligence).
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn btn--primary" style="padding: 0.85rem 2rem; font-size: 1rem;">
+                            Discuss a 360 Review for Your District &rarr;
+                        </a>
+                        <a href="method.html" class="btn btn--outline" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+                            Explore the Full Methodology
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <a href="index.html" class="brand-logo">
+                <img src="assets/raisemark-logo.png"
+                    alt="The RaiseMark logo in deep navy bold lettering, with the lowercase i rendered in crimson including an oversized circular dot, above the tagline A Higher Standard in navy spaced capitals."
+                    width="88" height="48" style="height: 48px; width: auto;" loading="lazy">
+            </a>
+            <p>A Higher Standard</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="team.html">Team</a>
+                <a href="method.html">Method</a>
+                <a href="ai-360-review.html">360 Review</a>
+                <a href="ai-policy-tracker.html">50-State Tracker</a>
+                <a href="policy-check-up.html">Policy Check-Up</a>
+                <a href="articles.html">Articles</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 RaiseMark — A Higher Standard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

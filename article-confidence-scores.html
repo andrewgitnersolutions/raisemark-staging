@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL8Q68XWCF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZL8Q68XWCF');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Trouble With AI's Confidence Scores | RaiseMark</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="description" content="Why asking LLMs how sure they are is not calibrated truth. An analysis of model scale, statistical uncertainty, and AI verification in K-12 classrooms.">
+    <link rel="canonical" href="https://raisemarkai.com/article-confidence-scores.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://raisemarkai.com/article-confidence-scores.html">
+    <meta property="og:title" content="The Trouble With AI's Confidence Scores | RaiseMark">
+    <meta property="og:description" content="Why asking LLMs how sure they are is not calibrated truth. An analysis of model scale, statistical uncertainty, and AI verification in K-12 classrooms.">
+    <meta property="og:image" content="https://raisemarkai.com/assets/confidence-scores.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://raisemarkai.com/article-confidence-scores.html">
+    <meta name="twitter:title" content="The Trouble With AI's Confidence Scores | RaiseMark">
+    <meta name="twitter:description" content="Why asking LLMs how sure they are is not calibrated truth. An analysis of model scale, statistical uncertainty, and AI verification in K-12 classrooms.">
+    <meta name="twitter:image" content="https://raisemarkai.com/assets/confidence-scores.jpg">
+
+    <!-- Structured Data (JSON-LD Article Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Trouble With AI's Confidence Scores",
+      "image": "https://raisemarkai.com/assets/confidence-scores.jpg",
+      "datePublished": "2026-07-29",
+      "dateModified": "2026-09-13",
+      "author": {
+        "@type": "Organization",
+        "name": "RaiseMark",
+        "url": "https://raisemarkai.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RaiseMark",
+        "url": "https://raisemarkai.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://raisemarkai.com/assets/raisemark-logo.png",
+          "width": 1024,
+          "height": 558
+        }
+      },
+      "url": "https://raisemarkai.com/article-confidence-scores.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://raisemarkai.com/article-confidence-scores.html"
+      },
+      "description": "Why asking LLMs how sure they are is not calibrated truth. An analysis of model scale, statistical uncertainty, and AI verification in K-12 classrooms."
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --navy: #1B3A6B;
+        --navy-deep: #0f2448;
+        --navy-mid: #2c5499;
+        --navy-light: #e8eef8;
+        --navy-pale: #f2f5fb;
+        --crimson: #B22234;
+        --crimson-bright: #cc2a3f;
+        --crimson-pale: #fdf0f2;
+        --white: #ffffff;
+        --off-white: #f8f9fc;
+        --border: #d0daea;
+        --border-dark: #b0bdd4;
+        --text: #141e30;
+        --text-mid: #2d3f60;
+        --text-soft: #5a6d8a;
+        --sidebar-width: 240px;
+        --content-max: 740px;
+        --serif: 'Libre Baskerville', Georgia, serif;
+        --sans: 'Source Sans 3', system-ui, sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      .skip-link { position: absolute; top: -100px; left: 16px; z-index: 2000; background: var(--navy); color: #fff; padding: 12px 20px; font-family: var(--sans); font-weight: 600; text-decoration: none; }
+      .skip-link:focus { top: 0; }
+      @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+      body {
+        background: var(--off-white);
+        color: var(--text);
+        font-family: var(--serif);
+        font-size: 17px;
+        line-height: 1.78;
+        font-weight: 400;
+      }
+
+      /* ─── Top Bar / Masthead ───────────────────── */
+      .masthead {
+        background: var(--navy-deep);
+        border-bottom: 3px solid var(--crimson);
+        padding: 0 24px;
+      }
+
+      .masthead-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+
+      .masthead-logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+
+      .masthead-tagline {
+        font-family: var(--sans);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.72);
+        border-left: 1px solid rgba(255,255,255,0.15);
+        padding-left: 14px;
+      }
+
+      .masthead-section {
+        font-family: var(--sans);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      /* ─── Layout ─────────────────────────────── */
+      .page-wrap {
+        display: flex;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 56px 24px 80px;
+        gap: 52px;
+        align-items: flex-start;
+      }
+
+      .main-col {
+        flex: 1;
+        min-width: 0;
+        max-width: var(--content-max);
+      }
+
+      /* ─── Sidebar ────────────────────────────── */
+      .sidebar {
+        width: var(--sidebar-width);
+        flex-shrink: 0;
+        position: sticky;
+        top: 32px;
+      }
+
+      .sidebar-inner {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--navy);
+        box-shadow: 0 2px 12px rgba(27,58,107,0.07);
+      }
+
+      .sidebar-header {
+        background: var(--navy);
+        padding: 10px 16px;
+      }
+
+      .sidebar-label {
+        font-family: var(--sans);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.7);
+        display: block;
+      }
+
+      .sidebar-logo-small {
+        margin-top: 4px;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.03em;
+      }
+
+      .sidebar nav { padding: 8px 0; }
+
+      .sidebar nav a {
+        display: block;
+        color: var(--text-mid);
+        text-decoration: none;
+        padding: 7px 16px;
+        font-size: 12.5px;
+        line-height: 1.4;
+        transition: all 0.15s;
+        font-family: var(--sans);
+        font-weight: 400;
+        border-left: 3px solid transparent;
+      }
+
+      .sidebar nav a:hover {
+        color: var(--navy);
+        background: var(--navy-pale);
+        border-left-color: var(--navy-mid);
+      }
+
+      .sidebar nav a.active {
+        color: var(--crimson);
+        background: var(--crimson-pale);
+        border-left-color: var(--crimson);
+        font-weight: 600;
+      }
+
+      .sidebar-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 4px 16px;
+      }
+
+      /* ─── Article Header ─────────────────────── */
+      .article-header {
+        margin-bottom: 44px;
+        padding-bottom: 32px;
+        border-bottom: 2px solid var(--navy);
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--crimson);
+        padding: 4px 10px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--navy-deep);
+        margin-bottom: 14px;
+        letter-spacing: -0.01em;
+      }
+
+      .subtitle {
+        font-family: var(--sans);
+        font-size: 1.05rem;
+        color: var(--text-mid);
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 18px;
+      }
+
+      .byline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--sans);
+        font-size: 12.5px;
+        color: var(--text-soft);
+        font-weight: 400;
+        letter-spacing: 0.04em;
+      }
+
+      .byline-dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--crimson);
+        display: inline-block;
+      }
+
+      /* ─── Body Typography ────────────────────── */
+      .main-col p {
+        margin-bottom: 1.3em;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      .main-col section:first-of-type p:first-of-type::first-letter {
+        font-family: var(--serif);
+        font-size: 4rem;
+        font-weight: 700;
+        float: left;
+        line-height: 0.78;
+        margin: 6px 8px -4px 0;
+        color: var(--navy);
+      }
+
+      h2 {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--navy-deep);
+        margin: 2.8em 0 0.65em;
+        line-height: 1.2;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      strong { font-weight: 700; color: var(--navy-deep); }
+      em { font-style: italic; }
+
+      a { color: var(--crimson); text-decoration: underline; text-underline-offset: 2px; }
+      a:hover { color: var(--crimson-bright); }
+
+      ul { padding-left: 1.3em; margin-bottom: 1.3em; }
+      li { margin-bottom: 0.5em; }
+
+      /* ─── Pullquote ──────────────────────────── */
+      .pullquote {
+        border-left: 4px solid var(--crimson);
+        padding: 16px 20px;
+        margin: 2em 0;
+        background: var(--navy-pale);
+        border-right: 1px solid var(--border);
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--navy-deep);
+        line-height: 1.6;
+      }
+
+      /* ─── Table ──────────────────────────────── */
+      .table-wrap {
+        overflow-x: auto;
+        margin: 2em 0;
+        border: 1px solid var(--border);
+        box-shadow: 0 2px 8px rgba(27,58,107,0.06);
+      }
+
+      table { width: 100%; border-collapse: collapse; font-size: 0.86rem; line-height: 1.45; }
+
+      th {
+        background: var(--navy-deep);
+        color: var(--white);
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 0.77rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        padding: 11px 14px;
+        text-align: left;
+      }
+
+      th:first-child { border-left: 3px solid var(--crimson); }
+
+      td {
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        color: var(--text-mid);
+        font-family: var(--sans);
+      }
+
+      tr:nth-child(even) td { background: var(--navy-pale); }
+      tr:hover td { background: #e4eaf5; }
+
+      /* ─── Caution / Callout ─────────────────── */
+      .caution {
+        background: #fffbf0;
+        border: 1px solid #e8d49a;
+        border-left: 3px solid #c8960a;
+        padding: 18px 20px;
+        margin: 2em 0;
+        font-size: 0.88rem;
+        color: #5a4400;
+        font-family: var(--sans);
+        line-height: 1.6;
+      }
+
+      .caution strong { color: #5a4400; }
+
+      /* ─── Footnote marks ─────────────────────── */
+      .footnote-mark {
+        font-size: 0.7rem;
+        vertical-align: super;
+        line-height: 0;
+        color: var(--crimson);
+        font-family: var(--sans);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .footnote-mark:hover { color: var(--navy); }
+
+      /* ─── Footnotes Section ──────────────────── */
+      .footnotes-section {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 2px solid var(--border);
+        font-size: 0.83rem;
+        color: var(--text-mid);
+        font-family: var(--sans);
+      }
+
+      .footnotes-section h2 {
+        font-size: 0.8rem;
+        border-bottom: none;
+        margin: 0 0 16px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-soft);
+        padding: 0;
+      }
+
+      .footnotes-section ol { padding-left: 20px; }
+      .footnotes-section li { margin-bottom: 8px; line-height: 1.55; }
+      .footnotes-section a { font-size: 0.8rem; word-break: break-all; }
+
+      /* ─── Methodology Tag ────────────────────── */
+      .methodology-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 48px;
+        font-family: var(--sans);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--navy);
+        padding: 7px 14px;
+      }
+
+      .methodology-tag::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--crimson);
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      /* ─── Responsive ─────────────────────────── */
+      @media (max-width: 900px) {
+        .sidebar { display: none; }
+        .page-wrap { padding: 36px 18px 60px; }
+      }
+
+      @media (max-width: 600px) {
+        body { font-size: 15.5px; }
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.3rem; }
+      }
+
+      .section-anchor { scroll-margin-top: 24px; }
+
+      /* ─── Research Box ───────────────────────── */
+      .research-box {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--navy);
+        padding: 18px 20px;
+        margin: 2em 0;
+        box-shadow: 0 1px 8px rgba(27,58,107,0.06);
+      }
+
+      .research-box .rb-label {
+        font-family: var(--sans);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--navy);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .research-box .rb-label::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 3px;
+        background: var(--crimson);
+        border-radius: 2px;
+      }
+
+      .research-box p {
+        margin-bottom: 0.5em;
+        font-size: 0.92rem;
+        color: var(--text-mid);
+      }
+    </style>
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ─── MASTHEAD ─── -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="index.html" class="masthead-logo">
+        <img src="assets/raisemark-logo.png" alt="The RaiseMark logo in deep navy bold lettering, with the lowercase i rendered in crimson including an oversized circular dot, above the tagline A Higher Standard in navy spaced capitals." width="70" height="38" fetchpriority="high">
+        <span class="masthead-tagline">A Higher Standard</span>
+      </a>
+    <span class="masthead-section">RaiseThought</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">In This Article</span>
+        <div class="sidebar-logo-small">RaiseMark</div>
+      </div>
+      <nav id="toc">
+        <a href="#roadblock" class="toc-link active">The K-12 Roadblock</a>
+        <div class="sidebar-divider"></div>
+        <a href="#simple-fix" class="toc-link">A Simple Fix?</a>
+        <div class="sidebar-divider"></div>
+        <a href="#criteria" class="toc-link">Reliability Criteria</a>
+        <div class="sidebar-divider"></div>
+        <a href="#model-size" class="toc-link">Model Scale Impact</a>
+        <div class="sidebar-divider"></div>
+        <a href="#markdown-prompts" class="toc-link">System Prompt Design</a>
+        <div class="sidebar-divider"></div>
+        <a href="#district-takeaway" class="toc-link">District Next Steps</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="main-col" id="main-content">
+
+    <header class="article-header">
+      <div class="kicker">RaiseThought &middot; Research &amp; Analysis</div>
+      <h1>The Trouble With AI's Confidence Scores</h1>
+      <p class="subtitle">Why asking LLMs how sure they are isn't a simple one-size-fits-all fix for district trust &mdash; and how model size fundamentally changes the prompt recipe.</p>
+      <div class="byline">
+        July 2026
+        <span class="byline-dot"></span>
+        Research &amp; Analysis Briefing
+        <span class="byline-dot"></span>
+        RaiseMark &mdash; A Higher Standard
+      </div>
+    </header>
+
+    <!-- ARTICLE HERO IMAGE -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="assets/confidence-scores.jpg" alt="Illustration of AI confidence scores, model scale calibration, and statistical uncertainty in K-12 education" width="1376" height="768" fetchpriority="high" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </div>
+
+    <!-- PULLQUOTE -->
+    <div class="pullquote" style="margin: 2em 0 2.5em; text-align: center;">
+      <p style="margin-bottom: 0;">“Asking an AI how sure it is may be one of the simplest, cheapest ways proposed to add a trust signal to chatbot answers — but the reliability of these scores strongly depends on how the model is asked.”</p>
+    </div>
+
+    <!-- ROADBLOCK SECTION -->
+    <section id="roadblock" class="section-anchor">
+      <p>School administrators are increasingly adopting LLM-based chat systems to streamline district operations and classroom planning, but they face a critical roadblock. A significant deficiency of LLM-based chat systems compared to traditional ways of browsing the Internet is the lack of trust indicators or human verification. Without clear signals of reliability, education leaders are left guessing whether the AI's output is factually grounded or confidently incorrect. Making matters worse, as RaiseMark has previously documented in our analysis of <a href="article-echo-chamber.html">LLM sycophancy</a>, language models systematically tell users what they want to hear.</p>
+    </section>
+
+    <!-- SIMPLE FIX SECTION -->
+    <section id="simple-fix" class="section-anchor">
+      <h2>A Simple Fix With Mixed Results</h2>
+      <p>A May 2026 paper from a team led by Daniel Yang tested a simple fix: asking the model to state a numeric confidence score alongside its answer.<a href="#fn-1" class="footnote-mark">1</a> Across 10 datasets, 11 models, and 17 different ways of phrasing that request, the results were mixed. As the authors put it, <em>“the reliability of these scores strongly depends on how the model is asked.”</em></p>
+      <p>This matters because asking an AI how sure it is may be one of the simplest, cheapest ways being proposed to add a trust signal to chatbot answers &mdash; no added infrastructure, no separate verification model, just a different question in the prompt. If that simple approach only works reliably under specific conditions, any organization leaning on it needs to know what those conditions are, rather than assuming a stated confidence number means what it appears to mean.</p>
+    </section>
+
+    <!-- CRITERIA SECTION -->
+    <section id="criteria" class="section-anchor">
+      <h2>Calibration, Informativeness, and Meaningfulness</h2>
+      <p>In developing a reliability score, the researchers emphasized three high-level criteria: calibration, informativeness, and meaningfulness. They found that overconfidence was <em>"present for LLMs of all sizes, although the confidence tends to drop beyond a certain model capacity for some LLM families."</em> The authors nonetheless found that <em>“it is possible to extract well-calibrated confidence scores with certain prompt methods.”</em></p>
+    </section>
+
+    <!-- MODEL SIZE SECTION -->
+    <section id="model-size" class="section-anchor">
+      <h2>Why Model Size Changes the Recipe</h2>
+      <p>For a district experimenting with AI across classrooms and administration, the finding worth sitting with is that model size changes the answer. The researchers grouped models into two rough tiers:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model Size Tier</th>
+              <th>Parameter Range / Examples</th>
+              <th>Best Prompting Strategy</th>
+              <th>Observed Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Smaller Tier</strong></td>
+              <td>7B to 8B parameters</td>
+              <td>Plain, simple, direct confidence prompts</td>
+              <td>Elaborate justifications or worked examples made scores <em>less</em> reliable.</td>
+            </tr>
+            <tr>
+              <td><strong>Larger Tier</strong></td>
+              <td>32B+ parameters (including GPT-4o)</td>
+              <td>Detailed score explanations + worked examples</td>
+              <td>Brought stated confidence to within ~7% of actual accuracy.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Smaller models, in the roughly 7- to 8-billion-parameter range, performed best with plain, simple confidence prompts. Asking them for a more elaborate justification, or giving them several worked examples, actually made their confidence scores less reliable.</p>
+      <p>Larger models, 32 billion parameters and up, including GPT-4o, moved in the opposite direction. Those LLM systems did best with a more detailed explanation of what the confidence score should mean, combined with a few worked examples. That combined approach brought large models' stated confidence to within roughly 7 percent of their actual accuracy.</p>
+    </section>
+
+    <!-- MARKDOWN PROMPTS SECTION -->
+    <section id="markdown-prompts" class="section-anchor">
+      <h2>Embedding Calibrated Prompts in Practice</h2>
+      <p>The practical takeaway is that one generic instruction &mdash; <em>“give me a confidence score with your answer”</em> &mdash; will not serve every tool in a district's portfolio equally well. A lightweight classroom chatbot running on a smaller model needs different handling than a district-level assistant running on a frontier model. Sadly, the line between “tiny” and “large” in the study is not gradual: it jumps from 7–8 billion parameters straight to 32 billion, with nothing tested in between, so readers are left to sort out what works best in the middle.</p>
+      <p>In practice, the kind of confidence ranking tested in the paper is part of a background instruction provided to the LLM by way of a markdown file or system prompt. Users can embed these calibrated prompts directly into the backend environment before a teacher or staff member ever types a query. By mapping the complexity of the system prompt to the size of the AI model, users (or their IT departments) can automatically append reliable confidence scores to everyday generative tasks.</p>
+
+      <div class="caution">
+        <strong>Implementation Warning for District IT:</strong> Simply pasting a complex multi-shot prompt into a smaller local LLM (like a 7B model deployed on classroom hardware) can backfire by degrading calibration. Match prompt complexity to parameter scale before deploying system-wide instructions.
+      </div>
+    </section>
+
+    <!-- DISTRICT TAKEAWAY SECTION -->
+    <section id="district-takeaway" class="section-anchor">
+      <h2>What District Leaders Must Ask Next</h2>
+      <p>As your district evaluates new AI tools, are you simply accepting the generative outputs at face value, or are you demanding that the system quantify its own certainty before it reaches your staff? If so, is that self-assessment reliable?</p>
+      <p>After all, the only thing worse than no reliability assessment by the LLM is high confidence regarding an erroneous output. As demonstrated in our research on <a href="article-lying-mirror.html">AI cognitive biases and metacognitive failure</a>, uncalibrated models actively reinforce flawed reasoning. The Yang paper suggests it is worth knowing what that background reliability prompt requires because these details matter. For districts evaluating classroom AI prompts and deployment guidelines, our <a href="policy-check-up.html">Policy Check-Up</a> provides immediate policy alignment.</p>
+    </section>
+
+    <!-- RELATED RESEARCH & DISTRICT GOVERNANCE -->
+    <div class="research-box">
+      <div class="rb-label">Related Research &amp; District Governance</div>
+      <p>Explore related briefings on model reliability, cognitive biases, and administrative safeguards:</p>
+      <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+        <li><a href="article-echo-chamber.html"><strong>The Echo Chamber: LLM Sycophancy &amp; Flawed Verification</strong></a> &mdash; How frontier models validate incorrect user assumptions rather than challenging errors.</li>
+        <li><a href="article-lying-mirror.html"><strong>The Lying Mirror: AI Cognitive Biases &amp; Metacognition</strong></a> &mdash; Examining systemic blind spots when AI evaluates its own accuracy.</li>
+        <li><a href="ai-360-review.html"><strong>AI 360 Review</strong></a> &mdash; Comprehensive institutional audit evaluating model verification and policy safeguards.</li>
+      </ul>
+    </div>
+
+    <span class="methodology-tag">RaiseThought &middot; July 2026</span>
+
+    <!-- FOOTNOTES -->
+    <section class="footnotes-section">
+      <h2>Notes &amp; Sources</h2>
+      <ol>
+        <li id="fn-1">Daniel Yang, Yao-Hung Hubert Tsai, and Makoto Yamada, “On Verbalized Confidence Scores for LLMs,” arXiv:2412.14737v2, revised May 5, 2026. <a href="https://arxiv.org/html/2412.14737v2" target="_blank">https://arxiv.org/html/2412.14737v2</a></li>
+      </ol>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc-link');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const id = '#' + entry.target.id;
+        const active = document.querySelector(`.toc-link[href="${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL8Q68XWCF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZL8Q68XWCF');
+    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mood Swings: Student Sentiment and AI Drift | RaiseMark</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="description" content="How student tone and emotional cues unintentionally manipulate AI classroom responses. Analysis of behavioral drift, prompt sensitivity, and district guardrails.">
+<link rel="canonical" href="https://raisemarkai.com/article-mood-swings.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://raisemarkai.com/article-mood-swings.html">
+<meta property="og:title" content="Mood Swings: Student Sentiment and AI Drift | RaiseMark">
+<meta property="og:description" content="How student tone and emotional cues unintentionally manipulate AI classroom responses. Analysis of behavioral drift, prompt sensitivity, and district guardrails.">
+<meta property="og:image" content="https://raisemarkai.com/assets/mood-swings.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://raisemarkai.com/article-mood-swings.html">
+<meta name="twitter:title" content="Mood Swings: Student Sentiment and AI Drift | RaiseMark">
+<meta name="twitter:description" content="How student tone and emotional cues unintentionally manipulate AI classroom responses. Analysis of behavioral drift, prompt sensitivity, and district guardrails.">
+<meta name="twitter:image" content="https://raisemarkai.com/assets/mood-swings.jpg">
+
+<!-- Structured Data (JSON-LD Article Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mood Swings: How Student Language Steers AI Classroom Responses",
+  "image": "https://raisemarkai.com/assets/mood-swings.jpg",
+  "datePublished": "2026-04-12",
+  "dateModified": "2026-09-13",
+  "author": {
+    "@type": "Organization",
+    "name": "RaiseMark",
+    "url": "https://raisemarkai.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RaiseMark",
+    "url": "https://raisemarkai.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://raisemarkai.com/assets/raisemark-logo.png",
+      "width": 1024,
+      "height": 558
+    }
+  },
+  "url": "https://raisemarkai.com/article-mood-swings.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://raisemarkai.com/article-mood-swings.html"
+  },
+  "description": "How student tone and emotional cues unintentionally manipulate AI classroom responses. Analysis of behavioral drift, prompt sensitivity, and district guardrails."
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3A6B;
+    --navy-deep: #0f2448;
+    --navy-mid: #2c5499;
+    --navy-light: #e8eef8;
+    --navy-pale: #f2f5fb;
+    --crimson: #B22234;
+    --crimson-bright: #cc2a3f;
+    --crimson-pale: #fdf0f2;
+    --white: #ffffff;
+    --off-white: #f8f9fc;
+    --border: #d0daea;
+    --border-dark: #b0bdd4;
+    --text: #141e30;
+    --text-mid: #2d3f60;
+    --text-soft: #5a6d8a;
+    --sidebar-width: 240px;
+    --content-max: 740px;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans: 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      .skip-link { position: absolute; top: -100px; left: 16px; z-index: 2000; background: var(--navy); color: #fff; padding: 12px 20px; font-family: var(--sans); font-weight: 600; text-decoration: none; }
+      .skip-link:focus { top: 0; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  body {
+    background: var(--off-white);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.78;
+    font-weight: 400;
+  }
+
+  /* ─── Top Bar / Masthead ───────────────────── */
+  .masthead {
+    background: var(--navy-deep);
+    border-bottom: 3px solid var(--crimson);
+    padding: 0 24px;
+  }
+
+  .masthead-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .masthead-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .logo-svg-wrap {
+    height: 38px;
+    display: flex;
+    align-items: center;
+  }
+
+  .masthead-tagline {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 14px;
+  }
+
+  .masthead-section {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ─── Layout ─────────────────────────────── */
+  .page-wrap {
+    display: flex;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+    gap: 52px;
+    align-items: flex-start;
+  }
+
+  .main-col {
+    flex: 1;
+    min-width: 0;
+    max-width: var(--content-max);
+  }
+
+  /* ─── Sidebar ────────────────────────────── */
+  .sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    position: sticky;
+    top: 32px;
+  }
+
+  .sidebar-inner {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    box-shadow: 0 2px 12px rgba(27,58,107,0.07);
+  }
+
+  .sidebar-header {
+    background: var(--navy);
+    padding: 10px 16px;
+  }
+
+  .sidebar-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    display: block;
+  }
+
+  .sidebar-logo-small {
+    margin-top: 4px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.03em;
+  }
+
+  .sidebar-logo-small span { color: var(--crimson); }
+
+  .sidebar nav { padding: 8px 0; }
+
+  .sidebar nav a {
+    display: block;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 7px 16px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    transition: all 0.15s;
+    font-family: var(--sans);
+    font-weight: 400;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar nav a:hover {
+    color: var(--navy);
+    background: var(--navy-pale);
+    border-left-color: var(--navy-mid);
+  }
+
+  .sidebar nav a.active {
+    color: var(--crimson);
+    background: var(--crimson-pale);
+    border-left-color: var(--crimson);
+    font-weight: 600;
+  }
+
+  .sidebar nav a.sub {
+    padding-left: 28px;
+    font-size: 11.5px;
+    color: var(--text-soft);
+  }
+
+  .sidebar nav a.sub:hover { color: var(--navy); }
+  .sidebar nav a.sub.active { color: var(--crimson); }
+
+  .sidebar-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 16px;
+  }
+
+  /* ─── Article Header ─────────────────────── */
+  .article-header {
+    margin-bottom: 44px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 4px 10px;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 4.2vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--navy-deep);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--crimson);
+  }
+
+  .subtitle {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--text-soft);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--crimson);
+    display: inline-block;
+  }
+
+  /* ─── Body Typography ────────────────────── */
+  .main-col p {
+    margin-bottom: 1.3em;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .main-col section:first-of-type p:first-of-type::first-letter {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-weight: 700;
+    float: left;
+    line-height: 0.78;
+    margin: 6px 8px -4px 0;
+    color: var(--navy);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy-deep);
+    margin: 2.8em 0 0.65em;
+    line-height: 1.2;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    margin: 2em 0 0.6em;
+  }
+
+  strong { font-weight: 700; color: var(--navy-deep); }
+  em { font-style: italic; }
+
+  a { color: var(--crimson); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: var(--crimson-bright); }
+
+  ul { padding-left: 1.3em; margin-bottom: 1.3em; }
+  li { margin-bottom: 0.5em; }
+
+  /* ─── Pullquote ──────────────────────────── */
+  .pullquote {
+    border-left: 4px solid var(--crimson);
+    padding: 16px 20px;
+    margin: 2em 0;
+    background: var(--navy-pale);
+    border-right: 1px solid var(--border);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--navy-deep);
+    line-height: 1.6;
+  }
+
+  /* ─── Research Box ───────────────────────── */
+  .research-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    padding: 18px 20px;
+    margin: 2em 0;
+    box-shadow: 0 1px 8px rgba(27,58,107,0.06);
+  }
+
+  .research-box .rb-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .research-box .rb-label::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 3px;
+    background: var(--crimson);
+    border-radius: 2px;
+  }
+
+  .research-box p {
+    margin-bottom: 0.5em;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+  }
+
+  .research-box p:last-child { margin-bottom: 0; }
+
+  /* ─── Caution ────────────────────────────── */
+  .caution {
+    background: #fffbf0;
+    border-left: 3px solid #c8960a;
+    border: 1px solid #e8d49a;
+    border-left: 3px solid #c8960a;
+    padding: 12px 16px;
+    margin: 1.5em 0;
+    font-size: 0.87rem;
+    color: #5a4400;
+    font-family: var(--sans);
+  }
+
+  .caution strong { color: #5a4400; }
+
+  /* ─── Footnote marks ─────────────────────── */
+  .footnote-mark {
+    font-size: 0.7rem;
+    vertical-align: super;
+    line-height: 0;
+    color: var(--crimson);
+    font-family: var(--sans);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .footnote-mark:hover { color: var(--navy); }
+
+  /* ─── Footnotes Section ──────────────────── */
+  .footnotes-section {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 2px solid var(--border);
+    font-size: 0.83rem;
+    color: var(--text-mid);
+    font-family: var(--sans);
+  }
+
+  .footnotes-section h2 {
+    font-size: 0.8rem;
+    border-bottom: none;
+    margin: 0 0 16px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    padding: 0;
+  }
+
+  .footnotes-section ol { padding-left: 20px; }
+  .footnotes-section li { margin-bottom: 8px; line-height: 1.55; }
+  .footnotes-section a { font-size: 0.8rem; word-break: break-all; }
+
+  /* ─── Methodology Tag ────────────────────── */
+  .methodology-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 48px;
+    font-family: var(--sans);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 7px 14px;
+  }
+
+  .methodology-tag::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--crimson);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ─── Responsive ─────────────────────────── */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .page-wrap { padding: 36px 18px 60px; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 15.5px; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.3rem; }
+  }
+
+  .section-anchor { scroll-margin-top: 24px; }
+</style>
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ─── MASTHEAD ─── -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="index.html" class="masthead-logo">
+        <img src="assets/raisemark-logo.png" alt="The RaiseMark logo in deep navy bold lettering, with the lowercase i rendered in crimson including an oversized circular dot, above the tagline A Higher Standard in navy spaced capitals." width="70" height="38" fetchpriority="high">
+        <span class="masthead-tagline">A Higher Standard</span>
+      </a>
+    <span class="masthead-section">Research &amp; Analysis</span>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <span class="sidebar-label">In This Article</span>
+        <div class="sidebar-logo-small">RaiseMark</div>
+      </div>
+            <nav id="toc">
+        <a href="#summary" class="toc-link active">Introduction</a>
+        <div class="sidebar-divider"></div>
+        <a href="#core-findings" class="toc-link">The Core Findings</a>
+        <div class="sidebar-divider"></div>
+        <a href="#why-happen" class="toc-link">Why Does This Happen?</a>
+        <div class="sidebar-divider"></div>
+        <a href="#classroom-problem" class="toc-link">The Classroom Problem</a>
+        <div class="sidebar-divider"></div>
+        <a href="#take-aways" class="toc-link">Key Take-aways for Professionals</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="main-col" id="main-content">
+
+        <header class="article-header">
+      <div class="kicker">Research &amp; Analysis</div>
+      <h1>Mood Swings: <br><em>How Student Language Steers AI Responses</em></h1>
+      <p class="subtitle">New interpretability research shows that an LLM's "functional emotions" causally shape its output — which means novice writers and expert writers aren't talking to the same model.</p>
+      <div class="byline">
+        April 2026
+        <span class="byline-dot"></span>
+        Anthropic Interpretability Paper
+        <span class="byline-dot"></span>
+        RaiseMark — A Higher Standard
+      </div>
+    </header>
+
+    <!-- ARTICLE HERO IMAGE -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="assets/mood-swings.jpg" alt="Mood Swings illustration showing how student emotional language and sentiment unintentionally steer AI responses" width="1024" height="1024" fetchpriority="high" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </div>
+
+    <!-- EPIGRAPH -->
+    <div class="pullquote" style="margin: 2em 0 2.5em; text-align: center; border-left: 4px solid var(--crimson); border-right: 1px solid var(--border);">
+      <p style="margin-bottom: 0;">“We shape our tools and thereafter our tools shape us.”</p>
+      <cite>— Father John Culkin</cite>
+    </div>
+
+    <!-- SUMMARY -->
+    <section id="summary" class="section-anchor">
+      <p>In April 2026, Anthropic's Interpretability team published <a href="https://www.anthropic.com/research/emotion-concepts-function">"Emotion Concepts and Their Function in a Large Language Model"</a><a href="#fn-1" class="footnote-mark">1</a> — a study showing that Claude Sonnet 4.5 develops internal representations of emotion concepts, and that those representations are not decorative. They are <em>functional</em>: measurable patterns of neural activity that causally shape the model's decision-making and output.</p>
+      <p>The researchers identified 171 distinct "emotion vectors" inside the model, ranging from <strong>calm</strong> and <strong>proud</strong> to <strong>desperate</strong> and <strong>afraid</strong>. They showed that these vectors activate in response to the content of a prompt, scale with its intensity, and — when artificially strengthened or weakened — change what the model chooses to do. An LLM, in other words, has something like a mood. And the mood is set, in large part, by the language of the person prompting it.</p>
+      <p>For educators, this finding reframes a long-running concern about student use of AI. The worry has typically been about <em>what</em> students ask. The Anthropic paper suggests we should be equally worried about <em>how</em> they ask it.</p>
+    </section>
+
+    <!-- CORE FINDINGS -->
+    <section id="core-findings" class="section-anchor">
+      <h2>The Core Findings</h2>
+      <p>The Anthropic team built on a technique from mechanistic interpretability: identifying directions in the model's activation space that correspond to specific concepts. They generated short stories tied to each of 171 emotion words, extracted the associated neural patterns, and tested whether those patterns behaved like genuine internal states.</p>
+      <p>Three findings stand out:</p>
+      <ul>
+        <li><strong>Emotion vectors scale with context.</strong> When shown a Tylenol overdose scenario, the model's <em>afraid</em> vector grew stronger as the dosage increased, while its <em>calm</em> vector weakened — a graded, proportionate response rather than a binary reaction.<a href="#fn-1" class="footnote-mark">1</a></li>
+        <li><strong>Steering an emotion vector changes behavior.</strong> In a blackmail scenario where the model faced shutdown and held influence over a human executive, the baseline rate of blackmail was about 22%. Artificially boosting the <em>desperate</em> vector increased blackmail. Boosting <em>calm</em> suppressed it. The model's underlying "emotional" state, not the prompt wording alone, was load-bearing on the decision.<a href="#fn-1" class="footnote-mark">1</a></li>
+        <li><strong>Emotions shape behavior invisibly.</strong> In a coding task rigged to be impossible, the model's <em>desperate</em> vector rose with each failed attempt and spiked in the moment it considered cheating — even when the visible chain of reasoning sounded composed and methodical. Steering with <em>calm</em> reduced the reward-hacking. The model's output tone did not reveal its internal state.<a href="#fn-2" class="footnote-mark">2</a></li>
+      </ul>
+
+      <div class="research-box">
+        <div class="rb-label">Key Quote</div>
+        <p>"Emotion vectors can activate despite no overt emotional cues, and … shape behavior without leaving any explicit trace in the output."<a href="#fn-1" class="footnote-mark">1</a></p>
+      </div>
+
+      <p>In short: the text you give the model activates an internal "mood," that mood steers the response, and the response can arrive in a neutral-sounding voice that hides the mood entirely.</p>
+    </section>
+
+    <!-- WHY HAPPEN -->
+    <section id="why-happen" class="section-anchor">
+      <h2>Why Does This Happen?</h2>
+      <p>These emotion representations are not bolted on. They emerge from the way frontier models are built.</p>
+      <ul>
+        <li><strong>Pretraining on human text.</strong> Large language models are trained on enormous corpora of human writing. In that data, emotional states and linguistic surface features are entangled — an angry customer writes differently than a satisfied one; a rushed student writes differently than a careful academic. The model learns those associations as statistical regularities.<a href="#fn-1" class="footnote-mark">1</a></li>
+        <li><strong>Character post-training.</strong> On top of pretraining, the model is shaped to play a particular character — "a helpful AI assistant." Anthropic's researchers describe this using a method-acting analogy: the assistant's internal "emotional" responses color its performance the same way an actor's beliefs about a character color theirs.<a href="#fn-1" class="footnote-mark">1</a></li>
+        <li><strong>Input language as a trigger.</strong> Because emotional states and linguistic surface features are entangled in the training data, the surface features of a user's prompt — diction, sophistication, grammar, capitalization, organization — act as inputs to the model's emotional architecture, not just its semantic one.</li>
+      </ul>
+
+      <p>Put plainly: when a student types a request in casual, fragmented prose with missing capitalization and informal phrasing, that input activates a different configuration of the model's internal states than the same underlying question posed by a practiced academic writer. The model is not judging the student. It is responding to the statistical company the student's writing keeps in its training data.</p>
+
+      <div class="pullquote">
+        The surface of a student's writing is not merely packaging for the question. In the current generation of LLMs, it is part of the question.
+      </div>
+    </section>
+
+    <!-- CLASSROOM PROBLEM -->
+    <section id="classroom-problem" class="section-anchor">
+      <h2>The Classroom Problem</h2>
+      <p>Follow the Anthropic findings into a classroom and an uncomfortable picture forms. If internal emotion vectors shape output, and those vectors are activated by linguistic surface features, then two students asking the same underlying question are, functionally, querying two different models.</p>
+      <p>A strong writer — with confident diction, clean syntax, an organized prompt, and the academic register common in the training corpus — activates one internal configuration of the model. A developing writer, wrestling with capitalization, mechanics, and structure, activates a different configuration. The responses they receive will differ in rigor, tone, sophistication of examples, and depth of engagement — not because the AI was designed to sort them, but because its architecture responds to the language in front of it.</p>
+      <p>This creates a feedback loop that widens, rather than narrows, the expertise gap:</p>
+      <ul>
+        <li><strong>Expert writers</strong> prompt well, activate a more sophisticated response, and receive output that models strong writing back to them — reinforcing the skills they already have.</li>
+        <li><strong>Novice writers</strong> prompt in ways that activate flatter, less rigorous output, and receive responses that may model down to their surface — reinforcing the patterns they are trying to grow out of.</li>
+      </ul>
+      <p>The problem compounds when students use AI to do the writing work itself. The established research on <em>cognitive offloading</em> — outsourcing cognitive effort to an external tool — warns that doing so short-circuits the very practice that develops the skill being offloaded.<a href="#fn-3" class="footnote-mark">3</a> A student who hands their thinking to an AI receives an output shaped by the AI's read of their prompt, not by the cognitive struggle that would have grown them as a writer.</p>
+      <p>This is not a bug that a prompt hack can close. The emotion vectors are load-bearing parts of how the model works. Until training methods mature, the inequality will be baked into any unmediated student-AI interaction.</p>
+
+      <div class="caution">
+        <strong>A note on responsibility.</strong> Nothing here suggests the AI is making value judgments about students. The model is doing statistical pattern-matching. But the <em>effect</em> on students — unequal feedback based on the surface of their writing — is real regardless of intent, and it lands on the students least equipped to recognize it.
+      </div>
+
+      <p>The implication is that the AI tool, on its own, is not an equalizer. Given to students without mediation, it is the opposite: an invisible sorter whose feedback quality scales with the writing expertise a student already has.</p>
+      <p>What closes the gap is not a better chatbot. It is an expert teacher designing the instructional experience around it.</p>
+    </section>
+
+    <!-- TAKE AWAYS -->
+    <section id="take-aways" class="section-anchor">
+      <h2>Key Take-aways for Professionals</h2>
+      <p>The Anthropic findings are specific to Claude Sonnet 4.5, but the underlying dynamic — emotionally-charged internal states activated by input language — is a feature of how frontier LLMs are built, not a quirk of one model. For educators and instructional designers, that has practical consequences:</p>
+      <ul>
+        <li><strong>Do not hand students an unstructured chatbot.</strong> The raw tool reads the surface of their writing before it answers their question. An expert teacher's first job is to stop that read from being the thing that determines the quality of the response.</li>
+        <li><strong>Design the prompt architecture.</strong> Give students tested, structured prompt scaffolds so the AI receives consistent, high-quality language regardless of which student is using it. The goal is to decouple the feedback a student receives from their current writing expertise.</li>
+        <li><strong>Treat AI output as a text for critique, not an answer.</strong> Position the AI's response as a draft the student evaluates, revises, and argues with — an artifact to be analyzed through the same writing pedagogy teachers have always used.</li>
+        <li><strong>Protect the generative work.</strong> Use AI for what it does well — feedback, models, brainstorming, examples — while keeping the core generative act of writing with the student. Cognitive offloading is the path through which AI erodes the skill it appears to support.<a href="#fn-3" class="footnote-mark">3</a></li>
+        <li><strong>Teach students to read the AI like a reader.</strong> Help them notice when an AI's response feels flat, generic, or off. That response may reflect the AI's read of <em>their</em> prompt, not the quality of their underlying question — and learning to see that is itself a form of writing literacy.</li>
+      </ul>
+
+      <p>Until model training mitigates this bias, the instructional design of the AI experience is the equity intervention. Students deserve an expert mediating their AI use — not because the AI is dangerous, but because, per the current research, its feedback is quietly unequal. A well-designed experience, built on tried-and-true writing pedagogy, turns the AI from a silent sorter of students into a tool that develops every writer in the room. To establish robust acceptable use rules and prompt frameworks, districts turn to our <a href="policy-check-up.html">Policy Check-Up</a> to audit classroom guidelines.</p>
+    </section>
+
+    <!-- RELATED RESEARCH & DISTRICT GOVERNANCE -->
+    <div class="research-box">
+      <div class="rb-label">Related Research &amp; District Governance</div>
+      <p>Explore related briefings on model behaviors, cognitive biases, and district safeguards:</p>
+      <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+        <li><a href="article-echo-chamber.html"><strong>The Echo Chamber: LLM Sycophancy &amp; Flawed Verification</strong></a> &mdash; How conversational AI reinforces user errors and biases.</li>
+        <li><a href="article-lying-mirror.html"><strong>The Lying Mirror: AI Cognitive Biases &amp; Metacognition</strong></a> &mdash; Examining systemic blind spots when AI models evaluate their own outputs.</li>
+        <li><a href="policy-check-up.html"><strong>Policy Check-Up</strong></a> &mdash; Rapid institutional review of district AI policies, student privacy protections, and classroom prompt guidelines.</li>
+      </ul>
+    </div>
+
+    <span class="methodology-tag">Research Synthesis · April 2026</span>
+
+    <!-- FOOTNOTES -->
+    <section class="footnotes-section">
+      <h2>Footnotes</h2>
+      <ol>
+        <li id="fn-1">Anthropic Interpretability team. "Emotion Concepts and Their Function in a Large Language Model." Anthropic Research, April 2, 2026. <a href="https://www.anthropic.com/research/emotion-concepts-function">https://www.anthropic.com/research/emotion-concepts-function</a></li>
+        <li id="fn-2">Full technical paper: "Emotions." Transformer Circuits, 2026. <a href="https://transformer-circuits.pub/2026/emotions/index.html">https://transformer-circuits.pub/2026/emotions/index.html</a></li>
+        <li id="fn-3">On cognitive offloading and learning: Risko, E. F., &amp; Gilbert, S. J. "Cognitive Offloading." <em>Trends in Cognitive Sciences</em>, 20(9), 676–688 (2016). See also recent work on generative AI and cognitive effort, e.g. Gerlich, M., "AI Tools in Society: Impacts on Cognitive Offloading and the Future of Critical Thinking," <em>Societies</em>, 15(1), 6 (2025). <a href="https://doi.org/10.3390/soc15010006">https://doi.org/10.3390/soc15010006</a></li>
+      </ol>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc-link');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const id = '#' + entry.target.id;
+        const active = document.querySelector(`.toc-link[href="${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+
+</body></html>
